@@ -8,9 +8,13 @@ public class PROJETO {
     
     public static void main(String[] args) {
         // TODO code application logic here
+        int x,y,z;
+        //JOptionPane.showMessageDialog(null,"Calculadora");
+        x = Integer.valueOf(JOptionPane.showInputDialog("digite um numero"));
+        y = Integer.valueOf(JOptionPane.showInputDialog("digite um numero"));
         
-        JOptionPane.showMessageDialog(null,"muito loco");
-                
+        z = x+y;
+        JOptionPane.showMessageDialog(null,"resultador = "+ z);
         
         
     }
