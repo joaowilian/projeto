@@ -1,7 +1,7 @@
 package Model;
 
 public class Transferencia {
-
+//
 	private float ValorTrans;
 
 	private int ContaTrans;
