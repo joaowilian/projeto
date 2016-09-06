@@ -13,7 +13,7 @@ public class PROJETO {
         x = Integer.valueOf(JOptionPane.showInputDialog("digite um numero"));
         y = Integer.valueOf(JOptionPane.showInputDialog("digite um numero"));
         //sdfsdfsdf
-        z = x+y;
+        z = x+y*2;
         JOptionPane.showMessageDialog(null,"resultador = "+ z);
         
         
