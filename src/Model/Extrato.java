@@ -1,14 +1,25 @@
 package Model;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "extrato")
 public class Extrato {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)    
+    private float Quantia;
+    private int dias;
+    private Date date;
+    @ManyToOne
+    private Extrato extrato;
 
-	private float Quantia;
-
-	private Date Data;
-
-	private int Dias;
 
 	public int Movimentacao(int Dias) {
 		return 0;
@@ -19,6 +30,7 @@ public class Extrato {
 	}
 
 	public void SetQuantia(float Quantia) {
+            this.Quantia = Quantia;
 
 	}
 
@@ -27,11 +39,12 @@ public class Extrato {
 	}
 
 	public void SetDias(int Dias) {
+            this.dias = Dias;
 
 	}
 
 	public float GetQuantia() {
-		return 0;
+		return Quantia;
 	}
 
 	public Date GetData() {
@@ -39,7 +52,7 @@ public class Extrato {
 	}
 
 	public int GetDias() {
-		return 0;
+		return dias;
 	}
 
 	public Extrato(Conta conta) {

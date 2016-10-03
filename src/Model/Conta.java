@@ -1,13 +1,29 @@
 package Model;
 
-public class Conta {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-	private int numero;
+@Entity
+@Table(name = "conta")
 
-	private float saldo;
+public class Conta {   
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)    
+    private Integer idConta;
+    @ManyToOne
+    @JoinColumn(name = "idconta")    
+    private Conta conta;
+   
+   
 
 	public Conta buscarPorId(int id) {
-		return null;
+		return conta;
 	}
 
 }
