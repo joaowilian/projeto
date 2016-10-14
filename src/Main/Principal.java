@@ -31,6 +31,7 @@ public class Principal extends javax.swing.JPanel {
         btnSaque = new javax.swing.JButton();
         btnDepositar = new javax.swing.JButton();
         btnExtrato = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -49,6 +50,9 @@ public class Principal extends javax.swing.JPanel {
         btnExtrato.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExtrato.setText("Extrato");
         add(btnExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 90, -1));
+
+        jRadioButton1.setText("jRadioButton1");
+        add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -57,5 +61,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JButton btnExtrato;
     private javax.swing.JButton btnSaque;
     private javax.swing.JButton btnTransferencia;
+    private javax.swing.JRadioButton jRadioButton1;
     // End of variables declaration//GEN-END:variables
 }
