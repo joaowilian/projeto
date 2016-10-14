@@ -27,31 +27,35 @@ public class Principal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnTransferencia = new javax.swing.JButton();
+        btnSaque = new javax.swing.JButton();
+        btnDepositar = new javax.swing.JButton();
+        btnExtrato = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Tranferencia");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, -1));
+        btnTransferencia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnTransferencia.setText("Transferencia");
+        add(btnTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
 
-        jButton3.setText("Saque");
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 81, 90, -1));
+        btnSaque.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaque.setText("Saque");
+        add(btnSaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 90, -1));
 
-        jButton5.setText("Deposito");
-        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 90, -1));
+        btnDepositar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnDepositar.setText("Deposito");
+        add(btnDepositar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 130, -1));
 
-        jButton6.setText("Extrato");
-        add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 90, -1));
+        btnExtrato.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnExtrato.setText("Extrato");
+        add(btnExtrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 90, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnDepositar;
+    private javax.swing.JButton btnExtrato;
+    private javax.swing.JButton btnSaque;
+    private javax.swing.JButton btnTransferencia;
     // End of variables declaration//GEN-END:variables
 }
