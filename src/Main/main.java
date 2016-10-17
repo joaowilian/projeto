@@ -10,6 +10,6 @@ package Main;
 
 
 public class main {
-    system.out.println("ola mundo");
+    
     
 }
