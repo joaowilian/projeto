@@ -7,6 +7,7 @@ public class Deposito {
 	private float Valor;
 
 	private Date Data;
+       // private Conta conta;
 
 	private Deposito deposito;
 
@@ -15,14 +16,15 @@ public class Deposito {
 	}
 
 	public void setValor(float Valor) {
-
+            this.Valor = Valor;
 	}
 
 	public void setData(Date Data) {
-
+            this.Data = Data;
 	}
 
 	public void setConta(int conta) {
+           // this.conta = conta;
 
 	}
 
