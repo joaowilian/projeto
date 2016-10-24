@@ -18,12 +18,25 @@ public class Conta {
     private Integer idConta;
     @ManyToOne
     @JoinColumn(name = "idconta")    
-    private Conta conta;
+    private Cliente cliente;
+
+    public Integer getIdConta() {
+        return idConta;
+    }
+
+    public void setIdConta(Integer idConta) {
+        this.idConta = idConta;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
    
    
 
-	public Conta buscarPorId(int id) {
-		return conta;
-	}
-
+	
 }
