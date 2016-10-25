@@ -1,43 +1,62 @@
 package Model;
 
 import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 public class Deposito {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idCliente;    
+    private float Valor;
+    private Date Data;
+    private Deposito deposito;       
+    @ManyToOne
+    @JoinColumn(name = "Deposito")
+    private Cliente cliente;
 
-	private float Valor;
+    public Integer getIdCliente() {
+        return idCliente;
+    }
 
-	private Date Data;
-       // private Conta conta;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
+    }
 
-	private Deposito deposito;
+    public float getValor() {
+        return Valor;
+    }
 
-	public void Depositar(float Valor) {
+    public void setValor(float Valor) {
+        this.Valor = Valor;
+    }
 
-	}
+    public Date getData() {
+        return Data;
+    }
 
-	public void setValor(float Valor) {
-            this.Valor = Valor;
-	}
+    public void setData(Date Data) {
+        this.Data = Data;
+    }
 
-	public void setData(Date Data) {
-            this.Data = Data;
-	}
+    public Deposito getDeposito() {
+        return deposito;
+    }
 
-	public void setConta(int conta) {
-           // this.conta = conta;
+    public void setDeposito(Deposito deposito) {
+        this.deposito = deposito;
+    }
 
-	}
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-	public float getValor() {
-		return 0;
-	}
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
-	public Date getData() {
-		return null;
-	}
-
-	public int getConta() {
-		return 0;
-	}
-
+	
 }

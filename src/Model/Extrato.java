@@ -16,31 +16,34 @@ public class Extrato {
     @GeneratedValue(strategy = GenerationType.AUTO)    
     private float Quantia;
     private int dias;
-    private Date date;
+    private Date data;
     @ManyToOne
-    private Extrato extrato;
+    @JoinColumn(name = "Extrato")
+    private Cliente cliente;
 
+  
+    
+  
 
 	public int Movimentacao(int Dias) {
 		return 0;
 	}
 
 	public void Imprimir() {
+            
 
 	}
 
 	public void SetQuantia(float Quantia) {
             this.Quantia = Quantia;
-
 	}
 
 	public void SetData(Date Data) {
-
+            this.data = Data;
 	}
 
 	public void SetDias(int Dias) {
             this.dias = Dias;
-
 	}
 
 	public float GetQuantia() {
@@ -48,7 +51,7 @@ public class Extrato {
 	}
 
 	public Date GetData() {
-		return null;
+		return data;
 	}
 
 	public int GetDias() {
