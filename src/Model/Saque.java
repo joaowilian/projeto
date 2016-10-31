@@ -1,25 +1,41 @@
 package Model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 
 public class Saque {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer valorSaque;    
+    @ManyToOne
+    @JoinColumn(name = "saque")
+    private Cliente cliente;
+	
 
-	private int ValorSaque;
 
-	public int Saque(int Valor) {
-		return 0;
-	}
+    public Integer getValorSaque() {
+        return valorSaque;
+    }
 
-	public int Verificar(int Valor) {
-		return 0;
-	}
+    public void setValorSaque(Integer valorSaque) {
+        this.valorSaque = valorSaque;
+    }
 
-	public void setSaque(int Saque) {
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-	}
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
-	public int getSaque() {
-		return 0;
-	}
+	
+
+	
 
 }

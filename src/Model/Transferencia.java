@@ -1,29 +1,45 @@
 package Model;
 
-public class Transferencia {
-//
-	private float ValorTrans;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+public class Transferencia {
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)    
+        private Cliente cliente;
+	private float ValorTrans;
 	private int ContaTrans;
 
-	public void VerificarValor(float Valor) {
+        @ManyToOne
+        @JoinColumn(name = "Transferencia")
 
-	}
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-	public void setValorTrans(float ValorTrans) {
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
-	}
+    public float getValorTrans() {
+        return ValorTrans;
+    }
 
-	public void setContaTrans(int ContaTrans) {
+    public void setValorTrans(float ValorTrans) {
+        this.ValorTrans = ValorTrans;
+    }
 
-	}
+    public int getContaTrans() {
+        return ContaTrans;
+    }
 
-	public float getValorTrans() {
-		return 0;
-	}
-
-	public int getContaTrans() {
-		return 0;
-	}
+    public void setContaTrans(int ContaTrans) {
+        this.ContaTrans = ContaTrans;
+    }
+       
+	
 
 }
