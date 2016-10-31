@@ -45,6 +45,11 @@ public class Deposito extends javax.swing.JFrame {
 
         btnDepositar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnDepositar.setText("Depositar");
+        btnDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepositarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Informe a Conta:");
@@ -102,6 +107,10 @@ public class Deposito extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDepositarActionPerformed
 
     /**
      * @param args the command line arguments
