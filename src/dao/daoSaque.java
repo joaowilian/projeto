@@ -6,10 +6,10 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
-public class daoConta {
-     private Session session;
-     public daoConta(Session session) {
+public class daoSaque {
+         private Session session;
+    
+     public daoSaque(Session session) {
         this.session = session;
     }
     
@@ -62,6 +62,5 @@ public class daoConta {
       transaction.rollback();
       throw e;
     }
-  }
-  
+    }
 }

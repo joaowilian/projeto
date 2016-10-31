@@ -7,9 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
-public class daoConta {
+public class daoExtrato {
      private Session session;
-     public daoConta(Session session) {
+    
+     public daoExtrato(Session session) {
         this.session = session;
     }
     
@@ -62,6 +63,5 @@ public class daoConta {
       transaction.rollback();
       throw e;
     }
-  }
-  
+    }
 }
