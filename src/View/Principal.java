@@ -115,6 +115,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
+        if(javax.swing.JOptionPane.showConfirmDialog(null,"Deseja Fechar?","ATENÇÂO ",javax.swing.JOptionPane.YES_NO_OPTION )==0)
+        {
+            this.dispose();
+        }
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**

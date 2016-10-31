@@ -50,7 +50,7 @@ public class Extrato extends javax.swing.JFrame {
         txtConta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         comboData.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        comboData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5_Dias", "30_Dias" }));
+        comboData.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "5_Dias", "30_Dias", "360_Dias" }));
         comboData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboDataActionPerformed(evt);
@@ -75,7 +75,7 @@ public class Extrato extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(comboData, javax.swing.GroupLayout.Alignment.LEADING, 0, 374, Short.MAX_VALUE)
                             .addComponent(txtConta, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

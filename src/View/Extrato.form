@@ -42,7 +42,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,9 +117,11 @@
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="5_Dias"/>
-            <StringItem index="1" value="30_Dias"/>
+          <StringArray count="4">
+            <StringItem index="0" value="Selecionar"/>
+            <StringItem index="1" value="5_Dias"/>
+            <StringItem index="2" value="30_Dias"/>
+            <StringItem index="3" value="360_Dias"/>
           </StringArray>
         </Property>
       </Properties>
