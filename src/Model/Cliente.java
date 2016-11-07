@@ -19,9 +19,9 @@ public class Cliente {
     
     private int Senha;
    
-    private ContaCorrente contaCorrente;
+    //private ContaCorrente contaCorrente;
 
-    private ContaPoupanca contaPoupanca;
+    //private ContaPoupanca contaPoupanca;
 
     private String nome;
     
@@ -48,7 +48,7 @@ public class Cliente {
     public void setSenha(int Senha) {
         this.Senha = Senha;
     }
-
+/*
     public ContaCorrente getContaCorrente() {
         return contaCorrente;
     }
@@ -64,7 +64,7 @@ public class Cliente {
     public void setContaPoupanca(ContaPoupanca contaPoupanca) {
         this.contaPoupanca = contaPoupanca;
     }
-
+*/
     public String getNome() {
         return nome;
     }

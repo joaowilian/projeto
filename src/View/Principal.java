@@ -1,14 +1,18 @@
 
 package View;
 
+import dao.HibernateUtil;
+import org.hibernate.Session;
+
 /**
  *
  * @author joao
  */
 public class Principal extends javax.swing.JFrame {
-
+    private Session session;
   
     public Principal() {
+        session = HibernateUtil.getSessionFactory().openSession();
         initComponents();
         setLocationRelativeTo(null); //centralizar janela
     }
@@ -18,12 +22,19 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         btnDeposito = new javax.swing.JButton();
         btnExtrato = new javax.swing.JButton();
-        btnSaque = new javax.swing.JButton();
+        btnConta = new javax.swing.JButton();
         btnTranferencia = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnSaque1 = new javax.swing.JButton();
+        btnSaque2 = new javax.swing.JButton();
+        btnSaque4 = new javax.swing.JButton();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Fundo.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setAutoscrolls(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,8 +54,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnSaque.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnSaque.setText("Saque");
+        btnConta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnConta.setText("Conta");
+        btnConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContaActionPerformed(evt);
+            }
+        });
 
         btnTranferencia.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnTranferencia.setText("Tranferencia");
@@ -62,47 +78,56 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Model/logo.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setAutoscrolls(true);
+        btnSaque1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSaque1.setText("Saque");
+
+        btnSaque2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSaque2.setText("Saque");
+
+        btnSaque4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSaque4.setText("Saque");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnDeposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSaque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExtrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(45, 45, 45)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTranferencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(24, 24, 24))
+                    .addComponent(btnConta, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSaque1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSaque4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSaque2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeposito))
+                .addGap(89, 89, 89)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTranferencia))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeposito)
-                    .addComponent(btnTranferencia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnTranferencia)
+                    .addComponent(btnConta))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnExtrato)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSaque))
-                            .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 242, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(9, 9, 9)
+                        .addComponent(btnExtrato)
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSaque1)
+                            .addComponent(btnSaque4)
+                            .addComponent(btnSaque2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDeposito))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,8 +150,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTranferenciaActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContaActionPerformed
+        Conta conta = new Conta(session);
+        conta.setVisible(true);
+    }//GEN-LAST:event_btnContaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,10 +196,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConta;
     private javax.swing.JButton btnDeposito;
     private javax.swing.JButton btnExtrato;
     private javax.swing.JButton btnSair;
-    private javax.swing.JButton btnSaque;
+    private javax.swing.JButton btnSaque1;
+    private javax.swing.JButton btnSaque2;
+    private javax.swing.JButton btnSaque4;
     private javax.swing.JButton btnTranferencia;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

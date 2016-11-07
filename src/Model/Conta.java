@@ -15,16 +15,16 @@ public class Conta {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)    
-    private Integer idConta;
+    private Integer idConta;  
     @ManyToOne
-    @JoinColumn(name = "idconta")    
+    @JoinColumn(name = "idCliente")    
     private Cliente cliente;
 
     public Integer getIdConta() {
         return idConta;
     }
 
-    public void setIdConta(Integer idConta) {
+   public void setIdConta(Integer idConta) {
         this.idConta = idConta;
     }
 

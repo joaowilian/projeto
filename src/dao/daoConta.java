@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 
 public class daoConta {
      private Session session;
+     
      public daoConta(Session session) {
         this.session = session;
     }

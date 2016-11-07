@@ -31,7 +31,7 @@ public class Saque extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtQuantia = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnSacar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSacar.setText("Sacar");
