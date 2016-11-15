@@ -14,16 +14,14 @@ public class Conta extends javax.swing.JFrame {
     /**
      * Creates new form CadastroTeste
      */
-    public Conta(Integer idconta, Session session ) {
+    public Conta( ) {
         //this.idconta = idconta;
-        this.session = session;
+        //this.session = session;
         initComponents();
         setLocationRelativeTo(null);
     }
 
-    Conta(Session session) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -226,15 +224,14 @@ public class Conta extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void preencherTable() {
-       
+       /*
        DefaultTableModel modelo = (DefaultTableModel)table.getModel();
         modelo.setNumRows(0);
         
         daoConta daoConta = new daoConta(session);
         for(Model.Conta c: daoConta.list()){
             modelo.addRow(new Object[]{c.getIdConta(),c.getCliente()});
-        
+        */
   
-}
 }
 }

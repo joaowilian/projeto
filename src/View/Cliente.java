@@ -8,6 +8,7 @@ package View;
 import dao.daoCliente;
 import dao.daoConta;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import org.hibernate.Session;
 
 /**
@@ -44,7 +45,7 @@ public class Cliente extends javax.swing.JFrame {
         btnRemover = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setText("CodCliente");
@@ -170,7 +171,7 @@ public class Cliente extends javax.swing.JFrame {
         daoCliente dcliente = new daoCliente(session);
   
         dcliente.persistir(cli);
-        //preencherTable();
+        preencherTable();
         if (cli.getIdCliente() ==null){
             JOptionPane.showMessageDialog(null, "Problema ao inserir");
         }else{
@@ -198,4 +199,14 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    private void preencherTable() {
+        DefaultTableModel modelo = (DefaultTableModel)table.getModel();
+        modelo.setNumRows(0);
+        
+        daoCliente dCliente = new daoCliente(session);
+        for(Model.Cliente c: daoCliente.list()){
+            modelo.addRow(new Object[]{c.getIdCliente(),c.getNome()});
+    }
+    }
 }

@@ -23,158 +23,134 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnDeposito = new javax.swing.JButton();
-        btnExtrato = new javax.swing.JButton();
-        btnConta = new javax.swing.JButton();
-        btnTranferencia = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
-        btnSaque1 = new javax.swing.JButton();
-        btnSaque2 = new javax.swing.JButton();
-        btnSaque4 = new javax.swing.JButton();
-        btnCliente = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        btnExtrato = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Fundo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setAutoscrolls(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Banco");
 
-        btnDeposito.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnDeposito.setText("Deposito");
-        btnDeposito.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo_1.jpg"))); // NOI18N
+
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/1479260083_Registration.png"))); // NOI18N
+        jMenu1.setText("Cadastrar");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Clients_Icon_32.png"))); // NOI18N
+        jMenuItem1.setText("Cliente");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDepositoActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
+        jMenu1.add(jMenuItem1);
 
-        btnExtrato.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnExtrato.setText("Extrato");
-        btnExtrato.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/user.png"))); // NOI18N
+        jMenuItem2.setText("Conta");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExtratoActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
+        jMenu1.add(jMenuItem2);
+        jMenu1.add(jSeparator1);
 
-        btnConta.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnConta.setText("Conta");
-        btnConta.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/1479259988_Delete.png"))); // NOI18N
+        jMenuItem3.setText("Sair");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContaActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
+        jMenu1.add(jMenuItem3);
 
-        btnTranferencia.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnTranferencia.setText("Tranferencia");
-        btnTranferencia.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(jMenu1);
+
+        btnExtrato.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cofre.png"))); // NOI18N
+        btnExtrato.setText("Caixa Eletronico");
+        btnExtrato.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/extrato.png"))); // NOI18N
+        jMenuItem4.setText("Extrato");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTranferenciaActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
+        btnExtrato.add(jMenuItem4);
 
-        btnSair.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnSair.setText("Sair");
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
+        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/saque.png"))); // NOI18N
+        jMenuItem6.setText("Saque");
+        btnExtrato.add(jMenuItem6);
 
-        btnSaque1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnSaque1.setText("Saque");
+        jMenuItem8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Deposito.png"))); // NOI18N
+        jMenuItem8.setText("Deposito");
+        btnExtrato.add(jMenuItem8);
 
-        btnSaque2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnSaque2.setText("Saque");
+        jMenuItem7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Transferencia.png"))); // NOI18N
+        jMenuItem7.setText("Transferencia");
+        btnExtrato.add(jMenuItem7);
 
-        btnSaque4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnSaque4.setText("Saque");
+        jMenuBar1.add(btnExtrato);
 
-        btnCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnCliente.setText("Cliente");
-        btnCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClienteActionPerformed(evt);
-            }
-        });
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnConta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExtrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSaque1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSaque4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSaque2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDeposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTranferencia)
-                    .addComponent(btnCliente))
-                .addContainerGap(27, Short.MAX_VALUE))
+            .addComponent(jLabel2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnTranferencia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnExtrato)
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSaque1)
-                            .addComponent(btnSaque4)
-                            .addComponent(btnSaque2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDeposito)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConta)
-                    .addComponent(btnCliente))
-                .addGap(89, 89, 89))
+            .addComponent(jLabel2)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositoActionPerformed
-      
-       Deposito de = new Deposito();
-       de.setVisible(true);       
-       
-    }//GEN-LAST:event_btnDepositoActionPerformed
-
-    private void btnExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExtratoActionPerformed
-        Extrato ex = new Extrato();        // TODO add your handling code here:
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Extrato ex = new Extrato();
         ex.setVisible(true);
-    }//GEN-LAST:event_btnExtratoActionPerformed
+             
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void btnTranferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTranferenciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTranferenciaActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       Cliente cli = new Cliente();
+       cli.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        Conta c = new Conta();
+        c.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_btnSairActionPerformed
-
-    private void btnContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContaActionPerformed
-       
-        Conta conta = new Conta(session);
-        conta.setVisible(true);
-    }//GEN-LAST:event_btnContaActionPerformed
-
-    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-        Cliente cli = new Cliente();
-        cli.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_btnClienteActionPerformed
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,15 +190,18 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCliente;
-    private javax.swing.JButton btnConta;
-    private javax.swing.JButton btnDeposito;
-    private javax.swing.JButton btnExtrato;
-    private javax.swing.JButton btnSair;
-    private javax.swing.JButton btnSaque1;
-    private javax.swing.JButton btnSaque2;
-    private javax.swing.JButton btnSaque4;
-    private javax.swing.JButton btnTranferencia;
+    private javax.swing.JMenu btnExtrato;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
