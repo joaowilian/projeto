@@ -9,10 +9,10 @@ import org.hibernate.Session;
  * @author joao
  */
 public class Principal extends javax.swing.JFrame {
-    private Session session;
+    private static Session session;
   
     public Principal() {
-        session = HibernateUtil.getSessionFactory().openSession();
+        this.session = HibernateUtil.getSessionFactory().openSession();
         initComponents();
         setLocationRelativeTo(null); //centralizar janela
     }
@@ -185,6 +185,7 @@ public class Principal extends javax.swing.JFrame {
                 
                 new Principal().setVisible(true);
                 
+                //session.close();
             }
         });
     }

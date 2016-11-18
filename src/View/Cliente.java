@@ -165,17 +165,20 @@ public class Cliente extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         Model.Cliente cli = new Model.Cliente();
              
+        
         cli.setNome(txtNome.getText());
         cli.setTelefone(txtTelefone.getText());
         
         daoCliente dcliente = new daoCliente(session);
   
+       
         dcliente.persistir(cli);
+        
         preencherTable();
-        if (cli.getIdCliente() ==null){
+        if (cli.getIdcliente() == null){
             JOptionPane.showMessageDialog(null, "Problema ao inserir");
         }else{
-            txtCod.setText(cli.getIdCliente()+"");
+            txtCod.setText(cli.getIdcliente()+"");
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -201,12 +204,14 @@ public class Cliente extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void preencherTable() {
+      /*
         DefaultTableModel modelo = (DefaultTableModel)table.getModel();
         modelo.setNumRows(0);
         
         daoCliente dCliente = new daoCliente(session);
         for(Model.Cliente c: daoCliente.list()){
             modelo.addRow(new Object[]{c.getIdCliente(),c.getNome()});
+    }*/
     }
-    }
+
 }

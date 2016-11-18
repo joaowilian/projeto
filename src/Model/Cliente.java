@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,57 +16,35 @@ import javax.persistence.Table;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idCliente;
-    
-    private int Senha;
-   
-    //private ContaCorrente contaCorrente;
-
-    //private ContaPoupanca contaPoupanca;
-
+    private Integer idcliente;
+    private int idconta; // numero da conta
     private String nome;
     private String telefone;
-    
+       
     @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
-    private List<Conta> Contas = new ArrayList<>();
+    private List<Cliente> cliente = new ArrayList<>();
         
 
     public boolean Autenticar() {
 	return false;
     }
 
-    public Integer getIdCliente() {
-        return idCliente;
+    public Integer getIdcliente() {
+        return idcliente;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        this.idCliente = idCliente;
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
     }
 
-    public int getSenha() {
-        return Senha;
+    public int getIdconta() {
+        return idconta;
     }
 
-    public void setSenha(int Senha) {
-        this.Senha = Senha;
-    }
-/*
-    public ContaCorrente getContaCorrente() {
-        return contaCorrente;
+    public void setIdconta(int idconta) {
+        this.idconta = idconta;
     }
 
-    public void setContaCorrente(ContaCorrente contaCorrente) {
-        this.contaCorrente = contaCorrente;
-    }
-
-    public ContaPoupanca getContaPoupanca() {
-        return contaPoupanca;
-    }
-
-    public void setContaPoupanca(ContaPoupanca contaPoupanca) {
-        this.contaPoupanca = contaPoupanca;
-    }
-*/
     public String getNome() {
         return nome;
     }
@@ -74,13 +53,15 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public List<Conta> getContas() {
-        return Contas;
+    public List<Cliente> getCliente() {
+        return cliente;
     }
 
-    public void setContas(List<Conta> Contas) {
-        this.Contas = Contas;
+    public void setCliente(List<Cliente> cliente) {
+        this.cliente = cliente;
     }
+
+
 
     public String getTelefone() {
         return telefone;

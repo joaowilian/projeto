@@ -6,8 +6,9 @@
 package dao;
 
 import Model.Cliente;
-import Model.Conta;
+//import Model.Conta;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,6 +31,7 @@ public class daoCliente {
         }catch(Exception e){
           transaction.rollback();
           throw e;
+           
         }
     }
     
@@ -56,15 +58,15 @@ public class daoCliente {
     }
     
   
-  public Conta getById(Integer id) {
-    Model.Conta conta = (Model.Conta) session.load(Model.Conta.class, id);
-    return conta;
+  public Cliente getById(Integer id) {
+    Model.Cliente cli = (Model.Cliente) session.load(Model.Cliente.class, id);
+    return cli;
   }
   
-  public List<Conta> list() {
+  public List<Cliente> list() {
     Transaction transaction = session.beginTransaction();
     try{
-      List<Conta> lista = session.createQuery("from Contato").list();
+      List<Cliente> lista = session.createQuery("from Cliente").list();
       transaction.commit();
       return lista;
     }catch(Exception e){
