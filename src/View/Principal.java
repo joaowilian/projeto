@@ -3,6 +3,7 @@ package View;
 
 import dao.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  *
@@ -12,8 +13,10 @@ public class Principal extends javax.swing.JFrame {
     private static Session session;
   
     public Principal() {
-        this.session = HibernateUtil.getSessionFactory().openSession();
-        initComponents();
+        //SessionFactory sf = HibernateUtil.getSessionFactory();
+        //Session session = sf.openSession();
+        
+         initComponents();
         setLocationRelativeTo(null); //centralizar janela
     }
 
@@ -185,7 +188,9 @@ public class Principal extends javax.swing.JFrame {
                 
                 new Principal().setVisible(true);
                 
+                //session.flush();
                 //session.close();
+               // System.exit(0);
             }
         });
     }

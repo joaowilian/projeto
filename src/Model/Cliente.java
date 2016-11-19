@@ -16,8 +16,8 @@ import javax.persistence.Table;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idcliente;
-    private int idconta; // numero da conta
+    private long id;
+    //private long idconta; // numero da conta
     private String nome;
     private String telefone;
        
@@ -29,22 +29,27 @@ public class Cliente {
 	return false;
     }
 
-    public Integer getIdcliente() {
-        return idcliente;
+    public long getId() {
+        return id;
     }
 
-    public void setIdcliente(int idcliente) {
-        this.idcliente = idcliente;
+    public void setId(long id) {
+        this.id = id;
     }
-
-    public int getIdconta() {
+/*
+    public long getIdconta() {
         return idconta;
     }
 
-    public void setIdconta(int idconta) {
+    public void setIdconta(long idconta) {
         this.idconta = idconta;
     }
 
+ 
+    public void setIdconta(int idconta) {
+        this.idconta = idconta;
+    }
+*/
     public String getNome() {
         return nome;
     }

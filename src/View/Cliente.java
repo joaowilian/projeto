@@ -1,29 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package View;
 
+import dao.HibernateUtil;
 import dao.daoCliente;
 import dao.daoConta;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
-/**
- *
- * @author joao
- */
 public class Cliente extends javax.swing.JFrame {
 
-    private Session session;
-    /**
-     * Creates new form Cliente
-     */
+    private Session se;
+   
     public Cliente() {
         initComponents();
-         setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
+
+        this.se = HibernateUtil.getSessionFactory().openSession();
+         
         
     }
 
@@ -169,18 +164,20 @@ public class Cliente extends javax.swing.JFrame {
         cli.setNome(txtNome.getText());
         cli.setTelefone(txtTelefone.getText());
         
-        daoCliente dcliente = new daoCliente(session);
+        daoCliente dcli = new daoCliente(se);
   
-       
-        dcliente.persistir(cli);
+        //dcli.salvar(cli);
+        dcli.persistir(cli);
         
         preencherTable();
-        if (cli.getIdcliente() == null){
+       
+        if (cli.getId() == 0){
             JOptionPane.showMessageDialog(null, "Problema ao inserir");
         }else{
-            txtCod.setText(cli.getIdcliente()+"");
+            txtCod.setText(cli.getId()+"");
             JOptionPane.showMessageDialog(null, "Registro salvo com sucesso");
         }
+        
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

@@ -19,21 +19,33 @@ import org.hibernate.Transaction;
 public class daoCliente {
     private Session session;
      
-     public daoCliente(Session session) {
-        this.session = session;
+     public daoCliente(Session se) {
+        this.session = se;
     }
     
     public void persistir(Cliente cliente){
-        Transaction transaction = session.beginTransaction();
+        Transaction tr = session.beginTransaction();
         try{
           session.persist(cliente);
-          transaction.commit();
+          tr.commit();
         }catch(Exception e){
-          transaction.rollback();
+          tr.rollback();
           throw e;
            
         }
     }
+    
+    public void salvar(Cliente contato){
+        Transaction tr = session.beginTransaction();
+        try{
+          session.saveOrUpdate(contato);
+          tr.commit();
+          
+        }catch(Exception e){
+          tr.rollback();
+          throw e;
+        }
+    } 
     
     public void update(Cliente contato){
         Transaction transaction = session.beginTransaction();
