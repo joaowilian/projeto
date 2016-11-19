@@ -6,9 +6,7 @@
 package dao;
 
 import Model.Cliente;
-//import Model.Conta;
 import java.util.List;
-import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -74,16 +72,21 @@ public class daoCliente {
     Model.Cliente cli = (Model.Cliente) session.load(Model.Cliente.class, id);
     return cli;
   }
+  public List<Cliente> lendo(){
+      Transaction tr = session.beginTransaction();
+      
   
-  public List<Cliente> list() {
-    Transaction transaction = session.beginTransaction();
-    try{
-      List<Cliente> lista = session.createQuery("from Cliente").list();
-      transaction.commit();
-      return lista;
-    }catch(Exception e){
-      transaction.rollback();
-      throw e;
-    }
-  }
+      try {
+          List<Cliente> l = session.createQuery("from Cliente").list();
+          tr.commit();
+          return  l;
+      } catch (Exception e) {
+          tr.rollback();
+          throw e;
+         
+      }
+      
+}
+  
+
 }

@@ -16,6 +16,7 @@ public class Cliente extends javax.swing.JFrame {
     public Cliente() {
         initComponents();
         setLocationRelativeTo(null);
+        preencherTable();
 
         this.se = HibernateUtil.getSessionFactory().openSession();
          
@@ -201,14 +202,14 @@ public class Cliente extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void preencherTable() {
-      /*
+      
         DefaultTableModel modelo = (DefaultTableModel)table.getModel();
         modelo.setNumRows(0);
-        
-        daoCliente dCliente = new daoCliente(session);
-        for(Model.Cliente c: daoCliente.list()){
-            modelo.addRow(new Object[]{c.getIdCliente(),c.getNome()});
-    }*/
+        //daoCliente d = new daoCliente(se)
+        daoCliente dCli = new daoCliente(se);
+        for(Model.Cliente c: dCli.lendo()) {
+            modelo.addRow(new Object[]{c.getId(),c.getNome(),c.getTelefone()});
+    }
     }
 
 }
