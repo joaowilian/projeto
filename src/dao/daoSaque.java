@@ -1,7 +1,7 @@
 
 package dao;
 
-import Model.Conta;
+import Model.Cliente;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -13,7 +13,7 @@ public class daoSaque {
         this.session = session;
     }
     
-    public void persistir(Conta conta){
+    public void persistir(Cliente conta){
         Transaction transaction = session.beginTransaction();
         try{
           session.persist(conta);
@@ -24,7 +24,7 @@ public class daoSaque {
         }
     }
     
-    public void update(Conta contato){
+    public void update(Cliente contato){
         Transaction transaction = session.beginTransaction();
         try{
           session.update(contato);
@@ -35,7 +35,7 @@ public class daoSaque {
         }
     } 
     
-    public void delete(Conta contato){
+    public void delete(Cliente contato){
         Transaction transaction = session.beginTransaction();
         try{
           session.delete(contato);
@@ -47,15 +47,15 @@ public class daoSaque {
     }
     
   
-  public Conta getById(Integer id) {
-    Model.Conta conta = (Model.Conta) session.load(Model.Conta.class, id);
+  public Cliente getById(Integer id) {
+    Model.Cliente conta = (Model.Cliente) session.load(Model.Cliente.class, id);
     return conta;
   }
   
-  public List<Conta> list() {
+  public List<Cliente> list() {
     Transaction transaction = session.beginTransaction();
     try{
-      List<Conta> lista = session.createQuery("from Contato").list();
+      List<Cliente> lista = session.createQuery("from Contato").list();
       transaction.commit();
       return lista;
     }catch(Exception e){

@@ -17,8 +17,11 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;   
+    private String nConta;
+    private float saldo;
     private String nome;
     private String telefone;
+
        
     @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
     private List<Cliente> cliente = new ArrayList<>();
@@ -34,6 +37,22 @@ public class Cliente {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getnConta() {
+        return nConta;
+    }
+
+    public void setnConta(String nConta) {
+        this.nConta = nConta;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
     }
 
  

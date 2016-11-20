@@ -58,8 +58,6 @@ public class Extrato {
 		return dias;
 	}
 
-	public Extrato(Conta conta) {
-
-	}
+	
 
 }
