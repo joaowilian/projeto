@@ -275,6 +275,7 @@ public class Cliente extends javax.swing.JFrame {
                 txtTelefone.setText(c.getTelefone());
                 txtValor.setText(String.valueOf(c.getSaldo()));
                 txtConta.setText(c.getnConta());
+                //dfgdfg
             }
           
 
