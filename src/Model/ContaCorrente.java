@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ContaCorrente")
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idContaCorrente;

@@ -14,10 +14,10 @@ public class daoConta {
         this.session = session;
     }
     
-    public void persistir(Conta conta){
+    public void persistir(Conta c){
         Transaction transaction = session.beginTransaction();
         try{
-          session.persist(conta);
+          session.persist(c);
           transaction.commit();
         }catch(Exception e){
           transaction.rollback();

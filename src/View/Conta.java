@@ -1,6 +1,7 @@
 
 package View;
 
+import dao.HibernateUtil;
 import dao.daoConta;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -9,7 +10,7 @@ import org.hibernate.Session;
 
 
 public class Conta extends javax.swing.JFrame {
-    private Session session;
+    private Session se;
     //private int idconta;
     /**
      * Creates new form CadastroTeste
@@ -19,6 +20,9 @@ public class Conta extends javax.swing.JFrame {
         //this.session = session;
         initComponents();
         setLocationRelativeTo(null);
+        
+        this.se = HibernateUtil.getSessionFactory().openSession();
+        preencherTable();
     }
 
     
@@ -94,7 +98,7 @@ public class Conta extends javax.swing.JFrame {
         txtCodigoCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("N. Conta");
+        jLabel3.setText("ID Conta");
 
         txtID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
@@ -120,29 +124,29 @@ public class Conta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel1)
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel2)
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtCodigoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtCodigoCliente))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,12 +155,13 @@ public class Conta extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))))
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel2)))))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,7 +184,7 @@ public class Conta extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
          Model.Conta conta = new Model.Conta();
          
-         daoConta dConta = new daoConta(session);
+         daoConta dConta = new daoConta(se);
          dConta.persistir(conta);
          preencherTable();
          if (conta.getIdConta()==null){
@@ -224,14 +229,14 @@ public class Conta extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void preencherTable() {
-       /*
+       
        DefaultTableModel modelo = (DefaultTableModel)table.getModel();
         modelo.setNumRows(0);
         
-        daoConta daoConta = new daoConta(session);
-        for(Model.Conta c: daoConta.list()){
-            modelo.addRow(new Object[]{c.getIdConta(),c.getCliente()});
-        */
-  
-}
+        daoConta daoC = new daoConta(se);
+        for(Model.Conta c: daoC.list()){
+            modelo.addRow(new Object[]{c.getIdConta(),c.getSaldo()});
+        
+        }
+    }
 }

@@ -48,6 +48,11 @@ public class Cliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setText("CodCliente");
@@ -257,6 +262,12 @@ public class Cliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "escolha o registro para excluir");
         }
     }//GEN-LAST:event_btnRemoverActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+       //JOptionPane.showMessageDialog(null,"fechou");
+       se.flush();// libera ssesao
+       se.close();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

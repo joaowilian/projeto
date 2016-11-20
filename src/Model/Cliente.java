@@ -16,8 +16,7 @@ import javax.persistence.Table;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    //private long idconta; // numero da conta
+    private long id;   
     private String nome;
     private String telefone;
        
