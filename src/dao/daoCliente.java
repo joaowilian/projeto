@@ -7,6 +7,7 @@ package dao;
 
 import Model.Cliente;
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -68,10 +69,11 @@ public class daoCliente {
     }
     
   
-  public Cliente getById(Integer id) {
-    Model.Cliente cli = (Model.Cliente) session.load(Model.Cliente.class, id);
+  public Cliente getById(long id) {
+    Model.Cliente cli = (Model.Cliente) session.load(Model.Cliente.class, id);      
     return cli;
   }
+  
   public List<Cliente> lendo(){
       Transaction tr = session.beginTransaction();
       

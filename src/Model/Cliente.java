@@ -36,6 +36,13 @@ public class Cliente {
     public void setId(long id) {
         this.id = id;
     }
+
+ 
+
+ 
+   
+
+    
 /*
     public long getIdconta() {
         return idconta;
