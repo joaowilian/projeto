@@ -8,7 +8,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">system</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="Model.Conta"/>
     <mapping class="Model.Cliente"/>
+    <mapping class="Model.Saque"/>
   </session-factory>
 </hibernate-configuration>

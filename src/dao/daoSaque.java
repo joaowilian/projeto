@@ -3,14 +3,16 @@ package dao;
 
 import Model.Cliente;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
-public class daoSaque {
+public class daoSaque extends daoCliente{
          private Session session;
     
      public daoSaque(Session session) {
-        this.session = session;
+        super(session);
     }
     
     public void persistir(Cliente conta){
@@ -63,4 +65,16 @@ public class daoSaque {
       throw e;
     }
     }
+  
+  public Cliente verificaLogin (String login,String senha){
+      Cliente u =
+              (Cliente) session.createQuery("from cliente u where u.nconta = :login and u.senha = :senha")
+              .setParameter("nconta", login)
+              .setParameter("senha", senha)
+              .uniqueResult();
+      return u;
+      
+  }
+  
+  
 }

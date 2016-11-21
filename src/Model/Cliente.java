@@ -21,6 +21,7 @@ public class Cliente {
     private float saldo;
     private String nome;
     private String telefone;
+    private String senha;
 
        
     @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
@@ -53,6 +54,14 @@ public class Cliente {
 
     public void setSaldo(float saldo) {
         this.saldo = saldo;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
  

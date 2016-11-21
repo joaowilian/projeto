@@ -94,6 +94,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/saque.png"))); // NOI18N
         jMenuItem6.setText("Saque");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         btnExtrato.add(jMenuItem6);
 
         jMenuItem8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -138,6 +143,10 @@ public class Principal extends javax.swing.JFrame {
         Cliente cli = new Cliente();
         cli.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        new Saque().setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
