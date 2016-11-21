@@ -91,22 +91,27 @@ public class Login extends javax.swing.JFrame {
 
       
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     daoLogin dl = new daoLogin(se);
-        Model.Cliente cli = dl.verificarLogin(txtConta.getText(),txtSenha.getText());
-        this.id = cli.getId();
-     if(cli != null ){
-         JOptionPane.showMessageDialog(null,"seja bem vindo");
-          Saque s = new Saque(id,se);
-           s.show();
-         
-        // new Saque().setVisible(true);
-         this.dispose();
-     }else{
-         JOptionPane.showMessageDialog(null,"ERRO");
-         txtConta.setText("");
-         txtSenha.setText("");
-    }
-         
+       try{
+            daoLogin dl = new daoLogin(se);
+            Model.Cliente cli = dl.verificarLogin(txtConta.getText(),txtSenha.getText());
+            this.id = cli.getId();
+        
+              
+            if(cli != null ){
+                JOptionPane.showMessageDialog(null,"seja bem vindo");
+                Saque s = new Saque(id,se);
+                s.show();
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"usuario incorreto");
+                txtConta.setText("");
+                txtSenha.setText("");
+           }
+       }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"usuario incorreto");
+                txtConta.setText("");
+                txtSenha.setText("");
+       }
     
         
 

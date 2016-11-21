@@ -127,7 +127,7 @@ public class Saque extends javax.swing.JFrame {
         if (cli.getSaldo() < valor){
             JOptionPane.showMessageDialog(null,"Valor Insuficiente");
         }else{
-            JOptionPane.showMessageDialog(null,"seu saldo e maior");
+            JOptionPane.showMessageDialog(null,"vc esta sem dinheiro ");
         }
     }//GEN-LAST:event_bntSaqueActionPerformed
 
