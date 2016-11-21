@@ -283,6 +283,7 @@ public class Cliente extends javax.swing.JFrame {
            
         btnSalvar.setEnabled(true);
         btnRemover.setEnabled(false);
+        //btnUpdate.setEnabled(true);
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
@@ -334,7 +335,9 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        
+     try{
+          
+      
         daoCliente dcli = new daoCliente(se);        
         Model.Cliente cli = dcli.getById(new Long(txtCod.getText()));
         
@@ -355,6 +358,9 @@ public class Cliente extends javax.swing.JFrame {
             txtCod.setText(cli.getId()+"");
             JOptionPane.showMessageDialog(null, "Registro atualizado");
         }
+      }catch(Exception es){
+          JOptionPane.showMessageDialog(null,"preencha todos os campos");
+      }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     /**
