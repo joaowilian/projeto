@@ -1,20 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dao;
 
+import Model.Cliente;
 import org.hibernate.Session;
 
-/**
- *
- * @author joao
- */
 public class daoLogin extends daoCliente{
     
     public daoLogin(Session se) {
         super(se);
     }
+    
+    public Cliente verificarLogin (String nConta , String senha){
+        Session se = getSession();
+        Cliente u =
+                (Cliente) se.createQuery("from Cliente u where u.nConta = :nConta and u.senha = :senha")
+                .setParameter("nConta", nConta)
+                .setParameter("senha", senha)
+                .uniqueResult();
+        return u;
+    }
+
+   
     
 }

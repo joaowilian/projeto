@@ -21,6 +21,14 @@ public class daoCliente {
      public daoCliente(Session se) {
         this.session = se;
     }
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
     
     public void persistir(Cliente cliente){
         Transaction tr = session.beginTransaction();

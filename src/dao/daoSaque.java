@@ -8,11 +8,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-public class daoSaque extends daoCliente{
+public class daoSaque {
          private Session session;
     
      public daoSaque(Session session) {
-        super(session);
+        this.session = session;
     }
     
     public void persistir(Cliente conta){
@@ -65,16 +65,26 @@ public class daoSaque extends daoCliente{
       throw e;
     }
     }
-  
-  public Cliente verificaLogin (String login,String senha){
+  /*
+  public Cliente verificaLogin (String nConta,String senha){
+      Session se = getSession();
       Cliente u =
-              (Cliente) session.createQuery("from cliente u where u.nconta = :login and u.senha = :senha")
-              .setParameter("nconta", login)
+              (Cliente) se.createQuery("from cliente u where u.nConta = :nConta and u.senha = :senha")
+              .setParameter("nConta", nConta)
               .setParameter("senha", senha)
               .uniqueResult();
       return u;
       
   }
+ */
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
   
   
 }

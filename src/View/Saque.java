@@ -5,13 +5,9 @@
  */
 package View;
 
-
-
-import dao.HibernateUtil;
 import dao.daoCliente;
-import dao.daoSaque;
+import dao.daoLogin;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import org.hibernate.Session;
 
 /**
@@ -20,16 +16,21 @@ import org.hibernate.Session;
  */
 public class Saque extends javax.swing.JFrame {
     
-    Cliente cliente;
     private Session se;
-    public Saque() {
+    private long id;
+    private float valor;
+    
+    public Saque(long id,Session se) {
+        this.id = id;
+        this.se = se;
         initComponents();
         setLocationRelativeTo(null);
+        
+        preencher();
                
-
-        this.se = HibernateUtil.getSessionFactory().openSession();
-        exibirTabela();
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,134 +41,127 @@ public class Saque extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        txtConta = new javax.swing.JTextField();
-        txtSenha = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        bntSaque = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtConta = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosed(java.awt.event.WindowEvent evt) {
-                formWindowClosed(evt);
-            }
-        });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setText("Senha:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("Numero Conta:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        txtConta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 129, -1));
-
-        txtSenha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 129, -1));
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("Confirmar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bntSaque.setText("Saque");
+        bntSaque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bntSaqueActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 180, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Fundo.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setToolTipText("");
-        jLabel1.setPreferredSize(new java.awt.Dimension(198, 120));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 200));
+        jLabel1.setText("Numero Conta:");
 
-        tabela.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jLabel2.setText("Nome:");
 
-            },
-            new String [] {
-                "Cod.Cliente", "Numero Conta", "Valor", "Nome", "Telefone", "Senha"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        jLabel3.setText("Valor:");
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
+        txtConta.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtConta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtConta.setEnabled(false);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelaMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(tabela);
+        txtNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtNome.setEnabled(false);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 600, 180));
+        txtValor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtConta)
+                            .addComponent(txtNome)
+                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(bntSaque)))
+                .addContainerGap(305, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(bntSaque)
+                .addContainerGap(195, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exibirTabela(){
-         DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();
-        modelo.setNumRows(0);       
-        daoCliente dCli = new daoCliente(se);
-        for(Model.Cliente c: dCli.lendo()) {
-            modelo.addRow(new Object[]{c.getId(),c.getnConta(),c.getSaldo(), c.getNome(),c.getTelefone(),c.getSenha()});
+    private void bntSaqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSaqueActionPerformed
+        daoCliente dcli = new daoCliente(se);
+           
+        Model.Cliente cli = dcli.getById(id);
+        valor = Long.valueOf(txtValor.getText());
+        if (cli.getSaldo() < valor){
+            JOptionPane.showMessageDialog(null,"Valor Insuficiente");
+        }else{
+            JOptionPane.showMessageDialog(null,"seu saldo e maior");
         }
-    }
-    
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     daoSaque dsaque = new daoSaque(se);
-     Model.Cliente cli = dsaque.verificaLogin(txtConta.getText(),txtSenha.getText());
-     if(cli != null ){
-         JOptionPane.showMessageDialog(null,"seja bem vindo");
-     }else{
-         JOptionPane.showMessageDialog(null,"ERRO");
-    }
-         
-    
-        
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-
-
-    }//GEN-LAST:event_tabelaMouseClicked
-
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-       se.flush();// libera ssesao
-       se.close();
-    }//GEN-LAST:event_formWindowClosed
+    }//GEN-LAST:event_bntSaqueActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton bntSaque;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabela;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtConta;
-    private javax.swing.JTextField txtSenha;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
+
+     public void preencher(){
+                
+         try{
+             daoCliente dcli = new daoCliente(se);
+           
+            Model.Cliente cli = dcli.getById(id);
+            txtConta.setText(cli.getnConta()+"");
+            txtNome.setText(cli.getNome());
+            valor = cli.getSaldo();
+            //txtValor.setText(cli.getSaldo()+"");
+           
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Registro não encontrado!");
+        }
+       
+    }
+
+
 }
