@@ -108,7 +108,7 @@ public class Login extends javax.swing.JFrame {
                 txtSenha.setText("");
            }
        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"usuario incorreto");
+                JOptionPane.showMessageDialog(null,"usuario incorreto");
                 txtConta.setText("");
                 txtSenha.setText("");
        }
